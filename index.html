@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> </title>
+
+  <!-- Import map placeholder (use esm.sh for any future modules) -->
+  <script type="importmap">
+    {
+      "imports": {}
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="chrome">
+    <div id="tabbar" role="tablist"></div>
+    <div id="toolbar">
+      <div id="nav">
+        <button id="back" title="Back" aria-label="Back">‹</button>
+        <button id="forward" title="Forward" aria-label="Forward">›</button>
+        <button id="reload" title="Reload" aria-label="Reload">⟳</button>
+        <button id="home" title="Home" aria-label="Home">⌂</button>
+      </div>
+      <form id="addressForm" autocomplete="off">
+        <input id="address" type="text" placeholder="Enter URL or search" aria-label="Address bar" />
+      </form>
+      <div id="rightActions">
+        <button id="bookmark" title="Bookmark">★</button>
+        <button id="openBookmarks" title="Open Bookmarks" aria-label="Bookmarks">🔖</button>
+        <button id="openHistory" title="Open History" aria-label="History">🕘</button>
+        <button id="newTab" title="New tab">＋</button>
+      </div>
+    </div>
+
+    <div id="content">
+      <div id="viewport">
+        <!-- Each tab has an iframe -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Popups -->
+  <div id="popupOverlay"></div>
+
+  <div id="popupBookmarks" class="popup" role="dialog" aria-label="Bookmarks">
+    <div class="popupHeader">
+      <span>Bookmarks</span>
+      <button class="popupClose" data-target="popupBookmarks">✕</button>
+    </div>
+    <ul class="popupBody"></ul>
+  </div>
+
+  <div id="popupHistory" class="popup" role="dialog" aria-label="History">
+    <div class="popupHeader">
+      <span>History</span>
+      <button class="popupClose" data-target="popupHistory">✕</button>
+    </div>
+    <div style="display:flex;gap:8px;padding:8px;border-bottom:1px solid var(--border)">
+      <button id="clearHistory" type="button" style="flex:1;padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:14px">Clear history</button>
+    </div>
+    <ul class="popupBody"></ul>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
